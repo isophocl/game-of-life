@@ -19,7 +19,22 @@ public class Conway implements RuleSet {
      * @return true if the cell should be alive in the next generation.
      */
     public boolean applyRules(boolean isAlive, int neighborCount) {
-        return true;
+
+        if (neighborCount<2) {
+            return false;
+        }
+        else if (neighborCount>3) {
+            return false;
+        }
+        else if (neighborCount == 3) {
+            return true;
+        }
+        else if (neighborCount == 2) {
+            return isAlive;
+        }
+        else {
+            return false;
+        }
     }
 }
 
